@@ -3,7 +3,7 @@ id: quiver
 name: Quiver
 type: shield
 url: https://github.com/flumelabs/quiver
-requires: [pro_micro]
+requires: [nice_nano_v2]
 features:
   - keys
 siblings:
