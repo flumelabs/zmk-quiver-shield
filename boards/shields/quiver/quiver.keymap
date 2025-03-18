@@ -1,33 +1,39 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-/* Haptic Feedback */
-#define HAPTIC_OBG(node_name, device_ref, force_val) \
-    node_name: node_name {                           \
-        compatible = "zmk,output-behavior-generic";  \
-        #binding-cells = <0>;                        \
-        device = <device_ref>;                       \
-        force = <force_val>;                         \
-    };
-
 #define OUTPUT_SOURCE_KEYCODE_STATE_CHANGE 3
-#define HAPTIC_KEYCODE(node_name, keycode, bindings_list, layers_list) \
-    node_name: node_name {                                             \
-        compatible = "zmk,output-behavior-listener";                   \
-        bindings = bindings_list;                                      \
-        position = keycode;                                            \
-        layers = layers_list;                                          \
-        sources = <OUTPUT_SOURCE_KEYCODE_STATE_CHANGE>;                \
-    };
-
 #define ALP 0
 
 / {
-    HAPTIC_OBG(hl_strong_click_1, &haptic_l, 1)
-    HAPTIC_OBG(hr_strong_click_1, &haptic_r, 1)
-    HAPTIC_KEYCODE(haptic_key_f, <0x09>, <&hl_strong_click_1>, <ALP>)
-    HAPTIC_KEYCODE(haptic_key_j, <0x0D>, <&hr_strong_click_1>, <ALP>)
-    
+    hl_strong_click_1: hl_strong_click_1 {
+		compatible = "zmk,output-behavior-generic";
+		#binding-cells = <0>;
+        device = <&haptic_l>;
+        force = <1>;
+	};
+
+    hr_strong_click_1: hr_strong_click_1 {
+		compatible = "zmk,output-behavior-generic";
+		#binding-cells = <0>;
+        device = <&haptic_r>;
+        force = <1>;
+	};
+
+    haptic_key_f: haptic_key_f {
+        compatible = "zmk,output-behavior-listener"
+        bindings = <&hl_strong_click_1>;
+        position = <0x09>;
+        layers = <ALP>;
+        sources = <OUTPUT_SOURCE_KEYCODE_STATE_CHANGE>;
+    };
+
+    haptic_key_j: haptic_key_j {
+        compatible = "zmk,output-behavior-listener"
+        bindings = <&hr_strong_click_1>;
+        position = <0x0D>;
+        layers = <ALP>;
+        sources = <OUTPUT_SOURCE_KEYCODE_STATE_CHANGE>;
+    };
 };
 
 / {
@@ -36,10 +42,10 @@
 
         default {
             bindings = <
-                &kp Q   &kp W   &kp E   &kp R   &kp T       &kp Y   &kp U   &kp I      &kp O   &kp P
-                &kp A   &kp S   &kp D   &kp F   &kp G       &kp H   &kp J   &kp K      &kp L   &kp ENTER
-                &kp Z   &kp X   &kp C   &kp V   &kp B       &kp N   &kp M   &kp COMMA  &kp DOT &kp FSLH
-                                                &kp SPACE   &kp BSPC
+                &kp Q   &kp W   &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I      &kp O   &kp P
+                &kp A   &kp S   &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L   &kp ENTER
+                &kp Z   &kp X   &kp C   &kp V   &kp B     &kp N   &kp M   &kp COMMA  &kp DOT &kp FSLH
+                                                &kp BSPC  &kp SPACE
             >;
         };
     };
