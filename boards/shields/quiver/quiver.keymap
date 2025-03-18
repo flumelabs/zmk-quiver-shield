@@ -28,7 +28,7 @@
     HAPTIC_KEYCODE(haptic_key_f, <0x09>, <&hl_dc_strong_1>, <ALP>)
     HAPTIC_KEYCODE(haptic_key_j, <0x0D>, <&hr_dc_strong_1>, <ALP>)
     
-}
+};
 
 / {
     keymap {
