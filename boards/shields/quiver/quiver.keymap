@@ -25,8 +25,8 @@
 / {
     HAPTIC_OBG(hl_strong_click_1, &haptic_l, 1)
     HAPTIC_OBG(hr_strong_click_1, &haptic_r, 1)
-    HAPTIC_KEYCODE(haptic_key_f, <0x09>, <&hl_dc_strong_1>, <ALP>)
-    HAPTIC_KEYCODE(haptic_key_j, <0x0D>, <&hr_dc_strong_1>, <ALP>)
+    HAPTIC_KEYCODE(haptic_key_f, <0x09>, <&hl_strong_click_1>, <ALP>)
+    HAPTIC_KEYCODE(haptic_key_j, <0x0D>, <&hr_strong_click_1>, <ALP>)
     
 };
 
