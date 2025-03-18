@@ -20,7 +20,7 @@
 	};
 
     haptic_key_f: haptic_key_f {
-        compatible = "zmk,output-behavior-listener"
+        compatible = "zmk,output-behavior-listener";
         bindings = <&hl_strong_click_1>;
         position = <0x09>;
         layers = <ALP>;
@@ -28,7 +28,7 @@
     };
 
     haptic_key_j: haptic_key_j {
-        compatible = "zmk,output-behavior-listener"
+        compatible = "zmk,output-behavior-listener";
         bindings = <&hr_strong_click_1>;
         position = <0x0D>;
         layers = <ALP>;
