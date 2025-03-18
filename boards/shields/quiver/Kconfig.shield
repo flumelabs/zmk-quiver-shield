@@ -1,0 +1,5 @@
+config SHIELD_QUIVER_LEFT
+    def_bool $(shields_list_contains,quiver_left)
+
+config SHIELD_QUIVER_RIGHT
+    def_bool $(shields_list_contains,quiver_right)

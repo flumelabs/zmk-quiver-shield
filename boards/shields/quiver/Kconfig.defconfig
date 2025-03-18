@@ -1,0 +1,19 @@
+if SHIELD_QUIVER_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Quiver"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_QUIVER_LEFT || SHIELD_QUIVER_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config I2C
+    default y
+
+endif

@@ -1,0 +1,11 @@
+file_format: "1"
+id: quiver
+name: Quiver
+type: shield
+url: https://github.com/flumelabs/quiver
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - quiver_left
+  - quiver_right
