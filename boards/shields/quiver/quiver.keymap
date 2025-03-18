@@ -1,6 +1,35 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+/* Haptic Feedback */
+#define HAPTIC_OBG(node_name, device_ref, force_val) \
+    node_name: node_name {                           \
+        compatible = "zmk,output-behavior-generic";  \
+        #binding-cells = <0>;                        \
+        device = <device_ref>;                       \
+        force = <force_val>;                         \
+    };
+
+#define OUTPUT_SOURCE_KEYCODE_STATE_CHANGE 3
+#define HAPTIC_KEYCODE(node_name, keycode, bindings_list, layers_list) \
+    node_name: node_name {                                             \
+        compatible = "zmk,output-behavior-listener";                   \
+        bindings = bindings_list;                                      \
+        position = keycode;                                            \
+        layers = layers_list;                                          \
+        sources = <OUTPUT_SOURCE_KEYCODE_STATE_CHANGE>;                \
+    };
+
+#define ALP 0
+
+/ {
+    HAPTIC_OBG(hl_strong_click_1, &haptic_l, 1)
+    HAPTIC_OBG(hr_strong_click_1, &haptic_r, 1)
+    HAPTIC_KEYCODE(haptic_key_f, <0x09>, <&hl_dc_strong_1>, <ALP>)
+    HAPTIC_KEYCODE(haptic_key_j, <0x0D>, <&hr_dc_strong_1>, <ALP>)
+    
+}
+
 / {
     keymap {
         compatible = "zmk,keymap";
