@@ -1,5 +1,9 @@
 #include "quiver.dtsi"
 
+&default_transform {
+    col-offset = <16>;
+};
+
 /{  
     // dummy device to make the overlay compile
     haptic_l: haptic_l {
